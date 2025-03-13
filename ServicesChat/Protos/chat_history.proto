@@ -1,0 +1,21 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "ServicesChat";
+
+package chatHistory;
+
+service ChatHistory{
+  rpc RequestHistory (Empty) returns (Reply);
+}
+
+message Empty {}
+
+message ChatMessage {
+  string username = 1;
+  string text = 2;
+  string time = 3;
+}
+
+message Reply {
+  repeated ChatMessage messages = 1;
+}
